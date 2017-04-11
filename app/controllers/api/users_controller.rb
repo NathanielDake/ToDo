@@ -7,4 +7,22 @@ class Api::UsersController < ApiController
     users = User.all
     render json: users, each_serializer: UserSerializer
   end
+
+  def create
+    user = User.new(user_params)
+    if user.save
+      render json: user
+    else
+      render json: { errors: user.errors.full_messages, status: :unprocessable_entity}
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
+
 end
+
+#Note: for create method, when render :json is used, rails searches for a serializer for the object and use
+#it if it is available. In this case rails will look for a serializer named UserSerializer and use it to serialize user

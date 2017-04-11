@@ -6,6 +6,6 @@ class ApiController < ApplicationController
   private
   #Implements basic HTTP authentication, which ensures HTTP requests are accompanied by a valid username and password
   def authenticated?
-    authenticate_or_request_with_http_basic{|username, password| User.where( username: username, password_digest: password).present? }
+    authenticate_or_request_with_http_basic{|username, password| User.where( username: username, password: password).present? }
   end
 end
