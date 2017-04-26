@@ -1,0 +1,17 @@
+{
+  "name": "todoApp",
+  "homepage": "https://github.com/NathanielDake/ToDo",
+  "authors": [
+    "Shannon Bertucci <hello@shannon.io>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
