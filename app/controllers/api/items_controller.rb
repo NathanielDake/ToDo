@@ -3,6 +3,12 @@ class Api::ItemsController < ApiController
 
   before_action :authenticated?
 
+
+  def show
+    @item = Item.find(params[:id])
+    render json: item
+  end
+
   def create
     list = List.find(params[:list_id])
     item = list.items.build(item_params)

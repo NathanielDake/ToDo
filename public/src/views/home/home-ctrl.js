@@ -1,13 +1,12 @@
 (function() {
     function HomeCtrl(ToDoService) {
-      var $ctrl = this;
-      
+        var $ctrl = this;
       ToDoService.getList()
         .then(function(list) {
           $ctrl.list = list;
         });
 
-      $ctrl.title = "Hello World";
+      $ctrl.title = "Your go to To Do app";
     };
 
     angular

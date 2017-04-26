@@ -1,13 +1,13 @@
 var nav = {
   bindings: {},
-  templateUrl: 'src/components/nav/nav.html',
+  templateUrl: 'src/components/nav/nav-test.html',
   controller: navCtrl
 };
 
 function navCtrl() {
   var $ctrl = this;
 
-  $ctrl.navTitle = "NavBar";
+  $ctrl.navTitle = "";
 }
 
 angular

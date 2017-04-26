@@ -1,13 +1,44 @@
-<html>
+<html ng-app="toDoApp">
   <head>
     <script src="src/bower_components/angular/angular.js"></script>
     <script src="src/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="src/app.js"></script>
+
     <script src="src/views/home/home-ctrl.js"></script>
-    <script src="src/components/nav/nav-ctrl.js"></script>
+    <script src="src/views/completed/completed-ctrl.js"></script>
+    <script src="src/views/current/current-ctrl.js"></script>
+    <script src="src/components/nav/nav-test-ctrl.js"></script>
+
     <script src="src/services/todo-service.js"></script>
+
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/narrow-jumbotron.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
-  <body ng-app="toDoApp">
-    <div ui-view></div>
+
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" ui-sref="home">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ui-sref="current">Current Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ui-sref="all">Completed Tasks</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ToDo</h3>
+      </div>
+
+      <ui-view></ui-view>
+    </div>
   </body>
+
 </html>

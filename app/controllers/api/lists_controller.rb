@@ -2,6 +2,14 @@ class Api::ListsController < ApiController
 
   before_action :authenticated?
 
+  #Show method renders all items belonging to a list in json format
+  def show
+    authenticate
+    list = List.find(params[:id])
+    items = list.items
+    render json: items
+  end
+
   def create
     user = User.find(params[:user_id])
     list = user.lists.build(list_params)
@@ -36,5 +44,10 @@ class Api::ListsController < ApiController
 
   def list_params
     params.require(:list).permit(:name, :permission)
+  end
+
+  def authenticate
+    username = "ndake11@gmail.com"
+    password = "password"
   end
 end

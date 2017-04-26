@@ -11,7 +11,19 @@
                 url: '/',
                 controller: 'HomeCtrl',
                 controllerAs: '$ctrl',
-                templateUrl: 'src/views/home/home.html'
+                templateUrl: '/src/views/home/home.html'
+            })
+            .state('completed', {
+                url: '/completed',
+                controller: 'CompletedCtrl',
+                controllerAs: '$ctrl',
+                templateUrl: '/src/views/completed/completed.html'
+            })
+            .state('current', {
+                url: '/current',
+                controller: 'CurrentCtrl',
+                controllerAs: '$ctrl',
+                templateUrl: '/src/views/current/current.html'
             });
     };
 
