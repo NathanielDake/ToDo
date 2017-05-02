@@ -7,30 +7,40 @@
         //     });
 
         $stateProvider
-            .state('home', {
+            .state('todo', {
+                abstract: true,
                 url: '/',
-                controller: 'HomeCtrl',
-                controllerAs: '$ctrl',
-                templateUrl: '/src/views/home/home.html'
+                component: 'todo',
+                template: '<todo></todo>'
             })
-            .state('completed', {
-                url: '/completed',
-                controller: 'CompletedCtrl',
-                controllerAs: '$ctrl',
-                templateUrl: '/src/views/completed/completed.html'
+            .state('todo.all', {
+                url: '',
+                component: 'todo',
+                resolve: {
+                    filter: function () {
+                        return 'all'
+                    }
+                }
             })
-            .state('current', {
-                url: '/current',
-                controller: 'CurrentCtrl',
-                controllerAs: '$ctrl',
-                templateUrl: '/src/views/current/current.html'
+            .state('todo.active', {
+                url: 'active',
+                component: 'todo',
+                resolve: {
+                    filter: function () {
+                        return 'active'
+                    }
+                }
             })
-            .state('test', {
-                url: '/test',
-                component: 'test',
-                template: '<test></test>',
-                resolve:{}
+            .state('todo.completed', {
+                url: 'completed',
+                component: 'todo',
+                resolve: {
+                    filter: function () {
+                        return 'completed'
+                    }
+                }
             });
+
     };
 
     angular
