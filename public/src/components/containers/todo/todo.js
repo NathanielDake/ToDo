@@ -6,16 +6,16 @@ var todo = {
 
 function todoCtrl(ToDoService) {
     var $ctrl = this;
-    $ctrl.todoList = undefined;
+    var test = undefined;
 
     ToDoService.getList()
         .then(function(list) {
-            console.log('Actual list: ', list)
-            $ctrl.list = list;
-            console.log('todo.js ctrl.todolist', $ctrl.list)
+            $ctrl.list = list.items;
+            test = list.items;
+            console.log('todo.js ctrl.todolist inside service ', $ctrl.list)
         });
 
-    console.log('todo.js global $ctrl.todolist', $ctrl.list)
+    console.log('todo.js $ctrl.todolist outside service', $ctrl.list, test)
 
     $ctrl.testTitle = "Hello friend";
 }
