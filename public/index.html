@@ -8,6 +8,7 @@
     <script src="src/views/completed/completed-ctrl.js"></script>
     <script src="src/views/current/current-ctrl.js"></script>
     <script src="src/components/nav/nav-test-ctrl.js"></script>
+    <script src="src/components/test/test-ctrl.js"></script>
 
     <script src="src/services/todo-service.js"></script>
 
@@ -21,8 +22,9 @@
   <body>
     <div class="container">
       <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
+
+
+        <ul class="nav nav-pills float-right">
             <li class="nav-item">
               <a class="nav-link" ui-sref="home">Home<span class="sr-only">(current)</span></a>
             </li>
@@ -33,11 +35,10 @@
               <a class="nav-link" ui-sref="all">Completed Tasks</a>
             </li>
           </ul>
-        </nav>
         <h3 class="text-muted">ToDo</h3>
       </div>
 
-      <ui-view></ui-view>
+      <div ui-view></div>
     </div>
   </body>
 

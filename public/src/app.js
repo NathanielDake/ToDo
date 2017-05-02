@@ -1,10 +1,10 @@
 (function() {
     function config($stateProvider, $locationProvider) {
-        $locationProvider
-            .html5Mode({
-                enabled: true,
-                requireBase: false
-            });
+        // $locationProvider
+        //     .html5Mode({
+        //         enabled: true,
+        //         requireBase: false
+        //     });
 
         $stateProvider
             .state('home', {
@@ -24,6 +24,12 @@
                 controller: 'CurrentCtrl',
                 controllerAs: '$ctrl',
                 templateUrl: '/src/views/current/current.html'
+            })
+            .state('test', {
+                url: '/test',
+                component: 'test',
+                template: '<test></test>',
+                resolve:{}
             });
     };
 

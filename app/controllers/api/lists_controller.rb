@@ -7,7 +7,10 @@ class Api::ListsController < ApiController
     authenticate
     list = List.find(params[:id])
     items = list.items
-    render json: items
+    render json: {
+        items: items,
+        id: list.id
+    }
   end
 
   def create
