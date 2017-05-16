@@ -1,15 +1,16 @@
 var todoList = {
     bindings: {
-        list: '<'
+        list: '='
     },
     templateUrl: 'src/components/todo-list/todo-list.html',
     controller: todoListCtrl
 };
 
 function todoListCtrl() {
+
     var $ctrl = this;
 
-
+    $ctrl.list = null;
 }
 
 angular

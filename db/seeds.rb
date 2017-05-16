@@ -24,7 +24,7 @@ users = User.all
 end
 lists = List.all
 
-100.times do
+40.times do
   Item.create!(
       description: Faker::Lorem.sentence,
       list_id: lists.sample.id,
@@ -32,7 +32,7 @@ lists = List.all
   )
 end
 
-100.times do
+10.times do
   Item.create!(
       description: Faker::Lorem.sentence,
       list_id: lists.sample.id,

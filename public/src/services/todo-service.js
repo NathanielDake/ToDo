@@ -1,34 +1,51 @@
 (function() {
-    function ToDoService($http) {
+    function ToDoService($http, $state) {
 
-
-    function getList() {
+      function getList() {
         return $http.get('/api/users/1/lists/1')
           .then(function(resp) {
             return resp.data;
           });
       }
 
-      function addTask(task, listId) {
-        return $http.post('/api/lists/'+listId+'/items')
+      function addItem(item, listId) {
+        var params = {
+            item: item
+        }
+
+        return $http.post('/api/lists/'+listId+'/items', params)
           .then(function(resp) {
-            console.log('ToDoService Response Data: ', resp.data)
             return resp.data;
           });
       }
 
-        //need to add functions too:
-        //get all todos
-        //add a todo
-        //delete a todo
-        //update a todo
-        //toggle a todo
-        //toggle all todos
-        //clear completed todos
+      function updateItem(item, listId) {
+          var params = {
+              item: item
+          }
 
+          return $http.put('/api/lists/'+listId+'/items/'+item.id, params)
+              .then(function(resp) {
+                  return resp.data;
+              });
+      }
+
+      function deleteItem(item) {
+          var params = {
+              item: item
+          }
+
+          return $http.delete('/api/items/'+item.id, params)
+              .then(function(resp) {
+                  return resp.data;
+              });
+      }
 
       return {
-        getList: getList
+        getList: getList,
+        addItem: addItem,
+        updateItem: updateItem,
+        deleteItem: deleteItem
       };
 
     };

@@ -1,8 +1,14 @@
 <li ng-class="{'editing': $ctrl.editing, 'completed': $ctrl.completed}">
-    <div class="view" ng-dblclick="$ctrl.enableEditing()">
-        <input>
-        <label>{{$ctrl.description}}</label>
-        <button></button>
+    <div class="view">
+        <input
+            class="toggle"
+            type="checkbox"
+            name="{{ $ctrl.todo.id }}"
+            ng-model="$ctrl.todo.completed"
+            ng-change="$ctrl.updateTodo()">
+
+        <label>{{$ctrl.todo.description}} </label>
+        <button class="destroy" ng-click="$ctrl.deleteTodo()">x</button>
     </div>
     <form>
         <input class="edit" ng-model="$ctrl.description">

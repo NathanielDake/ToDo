@@ -5,7 +5,7 @@ class Api::ItemsController < ApiController
 
 
   def show
-    @item = Item.find(params[:id])
+    item = Item.find(params[:id])
     render json: item
   end
 
@@ -28,13 +28,20 @@ class Api::ItemsController < ApiController
     else
       render json: {}, status: 422
     end
+  end
 
-
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      render json: item, status: 200
+    else
+      render json: {}, status: 422
+    end
   end
 
   private
   def item_params
-    params.require(:item).permit(:description)
+    params.require(:item).permit(:description, :completed)
   end
 end
 
